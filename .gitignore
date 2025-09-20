@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+.venv/
+
+# VSCode config
+.vscode/
+
+# Dataset lớn
+DataSets/
+
+# Saved models
+Models_save/
+
+# Logs
+*.log
+
