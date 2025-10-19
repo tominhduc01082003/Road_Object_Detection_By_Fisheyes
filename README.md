@@ -80,12 +80,16 @@ Road_Object_Detection_By_Fisheyes/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/Road_Object_Detection_By_Fisheyes.git
+   git clone https://github.com/tominhduc01082003/Road_Object_Detection_By_Fisheyes
    cd Road_Object_Detection_By_Fisheyes
 2. **Setup environement** 
    ```bash
+     python --version
+     python -m venv .venv
     .venv/Scripts/activate  # Windows
      # or
+     python3.9 --version
+     python3.9 -m venv .venv
     .venv39/bin/activate  # Linux/MacOS  
 3. **Install Dependencies**
    ```bash
@@ -108,7 +112,7 @@ Road_Object_Detection_By_Fisheyes/
 - Download the Fisheye8K dataset, and put the data into ./DataSets/Fisheye8K_all_including_train&test/. Link to the fisheye8k dataset :https://github.com/MoyoG/FishEye8K
 2. **Fisheyes1K:** A smaller subset used for evaluation, located in DataSets/Fisheyes1K/evaluation_Windows. This dataset is used to test model performance and WBF ensemble.
 - Download the Fisheye1K dataset, and put the data into ./DataSets/Fisheyes1K/Fisheyes1K_Eval/. Link to the fisheye8k dataset :https://scidm.nchc.org.tw/en/dataset/fisheye1keval
-3. **Woodscape:**A datasets use- A large-scale fisheye dataset designed for autonomous driving applications.Contains high-resolution, 360° fisheye images captured under different lighting and weather conditions.Used for **pseudo-label generation** and **model generalization**.  
+3. **Woodscape:** A datasets use- A large-scale fisheye dataset designed for autonomous driving applications.Contains high-resolution, 360° fisheye images captured under different lighting and weather conditions.Used for **pseudo-label generation** and **model generalization**.  
 - Download the Woodscape dataset, and put the data into ./DataSets/Fisheye8K_all_including_train&test/Woodscape/. Link to the fisheye8k dataset :https://github.com/valeoai/WoodScape?tab=readme-ov-file
 
 4. **Standardize Filenames:** Run Rename_Woodscape.py to rename images to a consistent format (e.g., cameraX_scene_frame).
@@ -202,7 +206,7 @@ val:"" #Skip val
 ![alt text](image.png)
 ---
 ## Result
-![alt text](camera2_N_12.png) ![alt text](camera3_A_14.png) 
+![alt text](Wbf\\Sample_1K\\camera2_N_12.png) ![alt text](Wbf\\Sample_1K\\camera3_A_14.png) 
 | **Model**    | **Pretraining Data** | **Data Used**       | **mAP<sub>0.5:0.95</sub>** |
 | ------------ | -------------------- | ---------------------------------- | -------------------------- |
 | **YOLOv8m**  | COCO                 | Fisheye8K              | **41.23**                  |
