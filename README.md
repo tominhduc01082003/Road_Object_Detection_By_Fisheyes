@@ -206,7 +206,7 @@ val:"" #Skip val
 ![alt text](image.png)
 ---
 ## Result
-![alt text](Wbf\\Sample_1K\\camera2_N_12.png) ![alt text](Wbf\\Sample_1K\\camera3_A_14.png) 
+![alt text](camera2_N_12.png) ![alt text](camera3_A_14.png) 
 | **Model**    | **Pretraining Data** | **Data Used**       | **mAP<sub>0.5:0.95</sub>** |
 | ------------ | -------------------- | ---------------------------------- | -------------------------- |
 | **YOLOv8m**  | COCO                 | Fisheye8K              | **41.23**                  |
