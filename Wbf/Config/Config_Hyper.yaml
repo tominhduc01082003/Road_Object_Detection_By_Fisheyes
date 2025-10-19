@@ -1,0 +1,18 @@
+paths:
+  image_dir: "..\\..\\DataSets\\Fisheye8K_all_including_train&test\\Woodscape\\images"
+  label_dir: "..\\..\\DataSets\\Fisheye8K_all_including_train&test\\Woodscape\\labels"
+  eval_dir: "..\\..\\DataSets\\Fisheyes1K\\Fisheyes1K_Eval"
+  vis_dir: "..\\Pre_Vis"
+  output_json: "..\\Pre_Vis\\predictions.json"
+
+models:
+  yolov8m: "..\\..\\Models_save\\Yolov8_Fisheye\\Yolov8m\\stage2_unfreeze\\weights\\best.pt"
+  yolov8l: "..\\..\\Models_save\\Yolov8_Fisheye\\Yolov8l\\stage2_unfreeze_v8l\\weights\\best.pt"
+  yolov11x: "..\\..\\Models_save\\Yolov11_Fisheye\\Yolov11x\\stage2_unfreeze_yolov11x\\weights\\best.pt"
+
+params:
+  iou_thr: 0.5
+  skip_thr: 0.001
+  weights: [1.0, 1.0, 0.98]
+  conf_pred: 0.001
+  final_conf_thr: 0.25
