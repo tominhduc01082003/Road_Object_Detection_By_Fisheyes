@@ -108,27 +108,28 @@ Road_Object_Detection_By_Fisheyes/
 ---
 ####  Dataset Preparation
 
-1. **Fisheye8K:** The primary dataset for training and validation, containing fisheye images from multiple camera views (front, rear, left, right) with annotations for Bus, Bike, Car, Pedestrian, and Truck. Combined train and test splits are stored in DataSets/Fisheye8K_all_including_train&test.
+1. **Fisheye8K:** The primary dataset for training and validation, containing fisheye images from multiple camera views (front, rear, left, right) with annotations for Bus, Bike, Car, Pedestrian, and Truck.Train and test are stored in DataSets/Fisheye8K_all_including_train&test.
 - Download the Fisheye8K dataset, and put the data into ./DataSets/Fisheye8K_all_including_train&test/. Link to the fisheye8k dataset :https://github.com/MoyoG/FishEye8K
-2. **Fisheyes1K:** A smaller subset used for evaluation, located in DataSets/Fisheyes1K/evaluation_Windows. This dataset is used to test model performance and WBF ensemble.
-- Download the Fisheye1K dataset, and put the data into ./DataSets/Fisheyes1K/Fisheyes1K_Eval/. Link to the fisheye8k dataset :https://scidm.nchc.org.tw/en/dataset/fisheye1keval
+2. **Fisheyes1K:** A smaller subset used for evaluation.This dataset is used to test model performance and WBF ensemble.
+- Download the Fisheye1K dataset, and put the data into ./DataSets/Fisheyes1K/Fisheyes1K_Eval/. Link to the fisheye1k dataset :https://scidm.nchc.org.tw/en/dataset/fisheye1keval
 3. **Woodscape:** A datasets use- A large-scale fisheye dataset designed for autonomous driving applications.Contains high-resolution, 360° fisheye images captured under different lighting and weather conditions.Used for **pseudo-label generation** and **model generalization**.  
-- Download the Woodscape dataset, and put the data into ./DataSets/Fisheye8K_all_including_train&test/Woodscape/. Link to the fisheye8k dataset :https://github.com/valeoai/WoodScape?tab=readme-ov-file
+- Download the Woodscape dataset, and put the data into ./DataSets/Fisheye8K_all_including_train&test/Woodscape/. Link to the Woodscape dataset :https://github.com/valeoai/WoodScape?tab=readme-ov-file
+- Merge **train and test** in Woodscape into 1 folder name **'images'** locate in DataSets/Fisheye8K_all_including_train&test/Woodscape/
 
 4. **Standardize Filenames:** Run Rename_Woodscape.py to rename images to a consistent format (e.g., cameraX_scene_frame).
     ```bash
     python Rename_Woodscape.py
 5. **Pseudo Woodscape:** Run Pseudo_Label.py to make labels .txt Woodscape
     ```bash
+    cd ./Wbf/Pseudo_Woodscape
     python Pseudo_Label.py
 
-6. **Combine Splits:** Use Train_Test_combine.py to merge Fisheye8K train and test sets and woodscape and save into \DataSets\Fisheye8K_all_including_train&test\Woodscape.
+6. **Combine Splits:** Use Train_Test_combine.py to merge Fisheye8K train and test sets and woodscape and save into \DataSets\Fisheye8K_all_including_train&test\train_test_merged.
     ```bash
     python Train_Test_combine.py
 7. **Validate Labels:** Use Check_label.py to ensure labels follow YOLO format (class, x_center, y_center, width, height).
      ```bash
     python Check_label.py
-
 ---
 
 #### Training
@@ -138,7 +139,6 @@ Road_Object_Detection_By_Fisheyes/
 
    ```python
    model = YOLO("yolov8m.pt")
-   ```
 2. **Open terminal** :
    ```python
    cd ./Models_Architecture/Yolov8/Model/
@@ -149,7 +149,6 @@ Road_Object_Detection_By_Fisheyes/
 
    ```python
    model = YOLO("yolov8l.pt")
-   ```
 2. **Open terminal** :
    ```python
    cd ./Models_Architecture/Yolov8/Model/
@@ -158,14 +157,12 @@ Road_Object_Detection_By_Fisheyes/
 1. **Open terminal** :
    ```python
    cd ./Models_Architecture/Yolov11/Model/
-   python Train.py
 2. **Train with fisheyes**
    ```python
-   cd ./Models_Architecture/Yolov11/Model/
    python Train.py
 3. **Train ensemble fisheyes + Woodscape**
 **Convert train,val** in ./Models_Architecture/Yolov11/Config/Config_Hyper.yaml :
-train: "train\\images" # 8000 images fisheyes8k train + val,10000 images Woodscapes
+train: "train_test_merged\\images" # 8000 images fisheyes8k train + val,10000 images Woodscapes
 val:"" #Skip val
 **Run** :
     ```python
@@ -198,9 +195,8 @@ val:"" #Skip val
 - After we have predictions.json in Yolov8m and Yolov8l , Yolov11x(**fisheyes + Woodscape** )
 
    ```python
-   cd ./Wbf/Pseudo_Woodscape/
-   python Pseudo_Label.py 
-
+   cd ./Wbf/Wbf_1K/
+   python Predict_WBF_1K.py 
 ---
 ## Model Architecture
 ![alt text](image.png)
