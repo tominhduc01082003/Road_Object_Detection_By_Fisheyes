@@ -6,7 +6,7 @@ from tqdm import tqdm
 from ultralytics import YOLO
 from ensemble_boxes import weighted_boxes_fusion
 
-with open("config.yaml", "r", encoding="utf-8") as f:
+with open("Config_Hyper.yaml", "r", encoding="utf-8") as f:
     cfg = yaml.safe_load(f)
 
 image_dir = cfg["paths"]["image_dir"]
