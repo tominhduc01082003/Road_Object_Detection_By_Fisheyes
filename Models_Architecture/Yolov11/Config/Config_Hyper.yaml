@@ -5,7 +5,7 @@ train: "train\\images" # 5288 images fisheyes8k train
 val: "test\\images"    # 2712 images fisheyes8k val
 # Train with fisheyes + Woodscape
 
-#train: "train\\images" # 8000 images fisheyes8k train + val,10000 images Woodscapes
+#train: "train_test_merged\\images" # 8000 images fisheyes8k train + val,10000 images Woodscapes
 #val:"" #Skip val
 nc: 5
 names: ['Bus', 'Bike', 'Car', 'Pedestrian', 'Truck']
