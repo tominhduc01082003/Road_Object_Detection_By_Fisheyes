@@ -205,10 +205,11 @@ val:"" #Skip val
 ![alt text](camera2_N_12.png) ![alt text](camera3_A_14.png) 
 | **Model**    | **Pretraining Data** | **Data Used**       | **mAP<sub>0.5:0.95</sub>** |
 | ------------ | -------------------- | ---------------------------------- | -------------------------- |
-| **YOLOv8m**  | COCO                 | Fisheye8K              | **41.23**                  |
-| **YOLOv8l**  | COCO                 | Fisheye8K               | **43.26**                  |
-| **YOLOv11x** | COCO   | Fisheye8K | **45.52**                  |
-
+| YOLOv8m  | COCO                 | Fisheye8K              | 41.23                  |
+| YOLOv8l  | COCO                 | Fisheye8K               | 43.26                  |
+| YOLOv11x | COCO   | Fisheye8K | 45.52                  |
+| YOLOv11x | COCO   | Fisheye8K+Woodscape | 46.31                  |
+| **Wbf** | **COCO**   | **Fisheye8K,Woodscape** | **47.54**                  |
 ---
 ## Contact
 - To Minh Duc (ducto020803@gmail.com)
