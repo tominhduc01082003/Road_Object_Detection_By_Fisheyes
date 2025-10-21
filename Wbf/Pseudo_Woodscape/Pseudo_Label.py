@@ -35,7 +35,7 @@ for img_name in tqdm(image_files):
     img_path = os.path.join(image_dir, img_name)
     img = cv2.imread(img_path)
     if img is None:
-        print(f"⚠️ Bỏ qua {img_name} (không đọc được).")
+        print(f"Bỏ qua {img_name} (không đọc được).")
         continue
     h, w = img.shape[:2]
 
