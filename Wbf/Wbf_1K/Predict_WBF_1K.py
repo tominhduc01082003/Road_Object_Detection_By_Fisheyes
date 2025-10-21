@@ -47,7 +47,7 @@ print(f"Tổng số ảnh tìm thấy: {len(image_files)}")
 
 random.seed(42)
 vis_images = random.sample(image_files, 10)
-print(f"🔹 Sẽ lưu và hiển thị 10 ảnh: {vis_images}\n")
+print(f"Lưu và hiển thị 10 ảnh: {vis_images}\n")
 
 predictions = []
 
